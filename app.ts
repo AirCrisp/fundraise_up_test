@@ -19,6 +19,7 @@ const createUsers = () => {
                 country: faker.location.country(),
             },
             createdAt: new Date(),
+            updatedAt: new Date(),
         })
     }
 

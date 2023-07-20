@@ -11,4 +11,5 @@ export interface User {
         country: string
     }
     createdAt: Date
+    updatedAt: Date
 }

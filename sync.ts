@@ -68,6 +68,7 @@ const anonymize = anonymizeUser;
                 buff.addRecord({
                     _id: change.documentKey._id,
                     ...change.updateDescription?.updatedFields,
+                    updatedAt: new Date(),
                 })
         }
     )
@@ -75,7 +76,7 @@ const anonymize = anonymizeUser;
 
     const lastAnonymized = await db
         .collection(resultCollection)
-        .findOne({}, { sort: { createdAt: 1 } })
+        .findOne({}, { sort: { updatedAt: 1 } })
     if (lastAnonymized) {
         console.log('Last anonymized record found')
         const missedObjects = await findMissedObjects(
