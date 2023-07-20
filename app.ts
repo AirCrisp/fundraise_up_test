@@ -24,9 +24,9 @@ const createUsers = () => {
     }
 
     return users
-};
+}
 
-(async () => {
+;(async () => {
     const client = await connectToDB()
     setInterval(async () => {
         const users = createUsers()
