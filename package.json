@@ -5,9 +5,9 @@
     "main": "sync.ts",
     "scripts": {
         "build": "tsc",
-        "start:app": "npm run build && node build/app.js",
-        "start:sync": "npm run build && node build/sync.js",
-        "start:reindex": "npm run build && node build/sync.js --full-reindex",
+        "start:app": "node build/app.js",
+        "start:sync": "node build/sync.js",
+        "start:reindex": "node build/sync.js --full-reindex",
         "format": "prettier -w ."
     },
     "author": "",
