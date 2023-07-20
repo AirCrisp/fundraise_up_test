@@ -1,0 +1,23 @@
+{
+    "name": "fundraise_up_test_task",
+    "version": "1.0.0",
+    "description": "",
+    "main": "sync.ts",
+    "scripts": {
+        "build": "tsc",
+        "start:app": "npm run build && node build/app.js",
+        "start:sync": "npm run build && node build/sync.js",
+        "start:reindex": "npm run build && node build/sync.js --full-reindex",
+        "format": "prettier -w ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@faker-js/faker": "^8.0.2",
+        "@types/node": "^20.4.2",
+        "dotenv": "^16.3.1",
+        "mongodb": "^5.7.0",
+        "prettier": "^3.0.0",
+        "typescript": "^5.1.6"
+    }
+}
