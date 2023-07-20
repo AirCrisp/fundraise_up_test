@@ -28,6 +28,32 @@ const anonymize = anonymizeUser;
     })
     console.log('Data listener is set')
 
+    if (isReindexMode) {
+        console.log('Reindex mode started')
+        buff.setTimer()
+        let i = 0
+        let records: Document[] = []
+        while (i === 0 || records.length) {
+            console.log(
+                `${
+                    i === 0 ? i : (i - 1) * 1000 + records.length
+                } records processed`
+            )
+            records = await db
+                .collection(sourceCollection)
+                .find()
+                .limit(1000)
+                .skip(i * 1000)
+                .toArray()
+            i++
+            buff.addRecords(records)
+        }
+
+        buff.on('records ended', () => process.exit(0))
+
+        return
+    }
+
     const changeStream = db.collection(sourceCollection).watch()
     changeStream.on(
         'change',
